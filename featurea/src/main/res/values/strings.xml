@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="image_load_error">Oops something wrong happened loading the image</string>
+    <string name="request_error">Oops something wrong happened</string>
+</resources>
