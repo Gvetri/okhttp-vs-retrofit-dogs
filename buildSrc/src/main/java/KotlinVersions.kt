@@ -1,0 +1,6 @@
+const val RETROFIT_VERSION = "2.8.1"
+const val KOTLIN_SERIALIZATION_VERSION = "1.0.1"
+const val KOTLIN_SERIALIZATION_ADAPTER_VERSION = "0.8.0"
+const val OKHTTP_VERSION = "4.9.0"
+const val KOIN = "2.1.6"
+const val KOTLIN = "1.4.10"
