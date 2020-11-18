@@ -1,3 +1,5 @@
+include(":player:public")
+include(":player")
 include(":shared")
 include(":di")
 include(":featurea:fake")

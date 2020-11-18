@@ -1,10 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/main_graph.xml"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main_graph.xml"
     app:startDestination="@id/featureAFragment">
 
     <fragment
         android:id="@+id/featureAFragment"
         android:name="dev.gvetri.featurea.FeatureAFragment"
         android:label="FeatureAFragment" />
+
+    <navigation
+        android:id="@+id/player_graph"
+        app:startDestination="@+id/player_graph">
+        <include app:graph="@navigation/player_graph" />
+    </navigation>
 </navigation>

@@ -1,15 +1,36 @@
 package dev.gvetri.networkdatasource
 
-import dev.gvetri.apimodel.ApiDummyClass
-import dev.gvetri.apimodel.DogApi
-import dev.gvetri.model.Dog
-import dev.gvetri.model.MyDummyClass
+import dev.gvetri.apimodel.PaginatedVideoListApi
+import dev.gvetri.apimodel.VideoItemApi
+import dev.gvetri.model.*
 
 
-fun apiDogToDogMapper(dogApi: DogApi?): Dog {
-    return Dog(dogApi?.url)
+fun paginatedVideoListMapper(paginatedVideoListApi: PaginatedVideoListApi?): PaginatedVideoList {
+    val limitFallbackValue = 10
+    val pageFallbackValue = 0
+    val totalFallbackValue = 20
+
+    val videoList = paginatedVideoListApi?.list?.mapNotNull { item ->
+        if (item.id != null) videoItemApiMapper(item) else null
+    } ?: emptyList()
+
+    return PaginatedVideoList(
+        explicit = paginatedVideoListApi?.explicit ?: false,
+        hasMore = paginatedVideoListApi?.hasMore ?: false,
+        limit = paginatedVideoListApi?.limit ?: limitFallbackValue,
+        list = videoList,
+        page = paginatedVideoListApi?.page ?: pageFallbackValue,
+        total = paginatedVideoListApi?.total ?: totalFallbackValue
+    )
+
 }
 
-fun apiDummyToDummy(apiDummyClass: ApiDummyClass?): MyDummyClass {
-    return MyDummyClass(apiDummyClass?.id)
+fun videoItemApiMapper(videoItemApi: VideoItemApi): VideoItem {
+    return VideoItem(
+        channel = videoItemApi.channel ?: NON_AVAILABLE,
+        id = videoItemApi.id ?: "",
+        owner = videoItemApi.owner ?: NON_AVAILABLE,
+        title = videoItemApi.title ?: NON_AVAILABLE,
+        thumbnailUrl = videoItemApi.thumbnail_240_url
+    )
 }

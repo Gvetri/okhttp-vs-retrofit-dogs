@@ -4,6 +4,7 @@ import androidx.lifecycle.*
 import dev.gvetri.apublic.FeatureUseCase
 import dev.gvetri.model.AppError
 import dev.gvetri.model.Dog
+import dev.gvetri.model.PaginatedVideoList
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 
@@ -23,5 +24,5 @@ class FeatureAViewModel(useCase: FeatureUseCase) : ViewModel() {
 
     private fun onError(appError: AppError): FeatureState = FeatureState.Error(appError)
 
-    private fun onSuccess(dog: Dog): FeatureState = FeatureState.Success(dog)
+    private fun onSuccess(videoList: PaginatedVideoList): FeatureState = FeatureState.Success(videoList)
 }

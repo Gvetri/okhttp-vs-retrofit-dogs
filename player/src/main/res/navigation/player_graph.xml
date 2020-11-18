@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/player_graph"
+    app:startDestination="@id/playerFragment">
+
+    <fragment
+        android:id="@+id/playerFragment"
+        android:name="dev.gvetri.player.PlayerFragment"
+        android:label="player_fragment"
+        tools:layout="@layout/player_fragment">
+
+        <deepLink app:uri="client://playerFragment/{id}" />
+
+    </fragment>
+</navigation>
