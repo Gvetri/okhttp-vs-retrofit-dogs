@@ -11,7 +11,7 @@ fun paginatedVideoListMapper(paginatedVideoListApi: PaginatedVideoListApi?): Pag
     val totalFallbackValue = 20
 
     val videoList = paginatedVideoListApi?.list?.mapNotNull { item ->
-        if (item.id != null) videoItemApiMapper(item) else null
+        videoItemApiMapper(item)
     } ?: emptyList()
 
     return PaginatedVideoList(
@@ -25,7 +25,8 @@ fun paginatedVideoListMapper(paginatedVideoListApi: PaginatedVideoListApi?): Pag
 
 }
 
-fun videoItemApiMapper(videoItemApi: VideoItemApi): VideoItem {
+fun videoItemApiMapper(videoItemApi: VideoItemApi?): VideoItem? {
+    if (videoItemApi == null) return null
     return VideoItem(
         channel = videoItemApi.channel ?: NON_AVAILABLE,
         id = videoItemApi.id ?: "",

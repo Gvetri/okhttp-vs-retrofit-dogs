@@ -9,7 +9,7 @@ import org.koin.core.definition.Definitions
 import org.koin.core.qualifier.named
 import org.koin.dsl.module
 
-const val FEATURE_USE_CASE_IMPL = ""
+const val FEATURE_USE_CASE_IMPL = "VideoListUseCase"
 val featureAModule = module {
     single<FeatureUseCase>(named(FEATURE_USE_CASE_IMPL)) {
         FeatureUseCaseImpl(get(named(REPOSITORY_IMPL)))

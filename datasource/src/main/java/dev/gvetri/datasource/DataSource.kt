@@ -1,12 +1,10 @@
 package dev.gvetri.datasource
 
 import arrow.core.Either
-import dev.gvetri.model.AppError
-import dev.gvetri.model.Dog
-import dev.gvetri.model.MyDummyClass
-import dev.gvetri.model.PaginatedVideoList
+import dev.gvetri.model.*
 import kotlinx.coroutines.flow.Flow
 
 interface DataSource {
     fun retrieveVideoList(): Flow<Either<AppError, PaginatedVideoList>>
+    fun retrieveVideoDetail(id: String): Flow<Either<AppError, VideoItem>>
 }

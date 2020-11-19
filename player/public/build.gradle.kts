@@ -40,6 +40,11 @@ android {
         isWarningsAsErrors = true
         isAbortOnError = true
     }
+
+    packagingOptions {
+        exclude("META-INF/main.kotlin_module")
+        exclude("META-INF/public_debug.kotlin_module")
+    }
 }
 
 dependencies {

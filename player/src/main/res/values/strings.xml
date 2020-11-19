@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="error_video_string">We had a problem loading this video</string>
+    <string name="video_detail_error_loading">We had a problem loading the info for this video</string>
+</resources>
