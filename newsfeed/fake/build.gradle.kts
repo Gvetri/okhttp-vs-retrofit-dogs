@@ -5,7 +5,6 @@ plugins {
     kotlin("android")
     id("kotlin-android-extensions")
     kotlin("kapt")
-    id("kotlin-android")
 }
 
 android {
@@ -41,10 +40,6 @@ android {
         isWarningsAsErrors = true
         isAbortOnError = true
     }
-
-    buildFeatures {
-        viewBinding = true
-    }
 }
 
 dependencies {
@@ -52,22 +47,13 @@ dependencies {
     implementation(project(":shared"))
     implementation(project(":repository:public"))
     implementation(project(":di"))
+    implementation(project(":newsfeed:public"))
     implementation(project(":model"))
-    implementation(project(":player:public"))
-    implementation("androidx.legacy:legacy-support-v4:1.0.0")
-    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.2.0")
-    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0")
-    implementation("com.dailymotion.dailymotion-sdk-android:sdk:0.2.5")
+    implementation(project(":repository:fake"))
+    implementation(project(":networkdatasource:fake"))
     implementAndroidDefaultLibraries()
     implementTestLibraries()
     implementAndroidTestLibraries()
     implementation(ARROW_CORE)
-    implementation(COROUTINES)
-    implementation(COIL)
     kapt(ARROW_SYNTAX)
-    testImplementation(project(":repository:fake"))
-    testImplementation(project(":networkdatasource:fake"))
-    testImplementation(project(":newsfeed:fake"))
-    testImplementation(COROUTINES_TEST)
-    testImplementation(ANDROIDX_CORE_TESTING)
 }

@@ -49,7 +49,7 @@ dependencies {
     implementation(project(":datasource"))
     implementation(project(":networkdatasource"))
     implementation(project(":api"))
-    implementation(project(":featurea:public"))
+    implementation(project(":newsfeed:public"))
     implementation(project(":shared"))
     implementation(KOIN_TEST)
     implementation(OKHTTP)

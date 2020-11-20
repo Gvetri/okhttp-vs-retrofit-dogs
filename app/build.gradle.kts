@@ -49,7 +49,7 @@ android {
 dependencies {
     implementation(kotlin("stdlib-jdk7"))
     implementation(project(":shared"))
-    implementation(project(":featurea"))
+    implementation(project(":newsfeed"))
     implementation(project(":player"))
     implementation(project(":di"))
     implementation(project(":repository"))
