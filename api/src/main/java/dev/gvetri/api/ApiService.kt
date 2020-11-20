@@ -3,5 +3,5 @@ package dev.gvetri.api
 import retrofit2.Response
 
 interface ApiService {
-    fun retrieveSomeData() : Response<ApiDummyClass>
+    fun retrieveSomeData() : Response<Any>
 }

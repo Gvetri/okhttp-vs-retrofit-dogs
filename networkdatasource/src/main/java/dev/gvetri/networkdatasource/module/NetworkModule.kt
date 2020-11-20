@@ -29,10 +29,10 @@ val networkModule = module {
         )
     }
     single(named(RETROFIT)) { provideRetrofit(client = get(named(HTTPCLIENT))) }
-    single(named(API_SERVICE)) { provideNasaApiService(retrofit = get(named(RETROFIT))) }
+    single(named(API_SERVICE)) { provideApiService(retrofit = get(named(RETROFIT))) }
 }
 
-private fun provideNasaApiService(retrofit: Retrofit): ApiService =
+private fun provideApiService(retrofit: Retrofit): ApiService =
     retrofit.create(ApiService::class.java)
 
 private fun provideRetrofit(client: OkHttpClient): Retrofit {
