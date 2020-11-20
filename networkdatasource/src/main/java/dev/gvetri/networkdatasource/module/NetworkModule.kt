@@ -11,7 +11,7 @@ import org.koin.dsl.module
 import retrofit2.Retrofit
 import java.util.concurrent.TimeUnit
 
-internal const val BASE_URL = "https://example.com"
+internal const val BASE_URL = "https://api.dailymotion.com/"
 internal const val API_SERVICE = "ApiService"
 internal const val RETROFIT = "Retrofit"
 const val HTTPCLIENT = "HttpClient"

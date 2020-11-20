@@ -4,8 +4,7 @@ import dev.gvetri.api.ApiService
 import retrofit2.Response
 
 class FakeApiService : ApiService {
-
-    override fun retrieveSomeData(): Response<ApiDummyClass> {
+    override fun retrieveNewsFeed(): Response<Any> {
         TODO("Not yet implemented")
     }
 }

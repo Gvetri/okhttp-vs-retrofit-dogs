@@ -18,7 +18,6 @@ import java.io.IOException
 //URL: https://medium.com/@elizarov/callbacks-and-kotlin-flows-2b53aa2525cf
 @Suppress("BlockingMethodInNonBlockingContext")
 data class NetworkDataSource(
-    private val apiService: ApiService,
     private val videoListMapper: (PaginatedVideoListApi?) -> PaginatedVideoList = ::paginatedVideoListMapper,
     private val videoDetailMapper: (VideoItemApi?) -> VideoItem? = ::videoItemApiMapper,
     private val okHttpClient: OkHttpClient

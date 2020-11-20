@@ -5,6 +5,10 @@ import dev.gvetri.apimodel.VideoItemApi
 import dev.gvetri.model.*
 
 
+/***
+ * Converts a Network Model to a Domain Model discarding the null items from the list
+ * @return a list of PaginatedVideoList if there are valid VideoItems otherwise returns an emptyList
+ */
 fun paginatedVideoListMapper(paginatedVideoListApi: PaginatedVideoListApi?): PaginatedVideoList {
     val limitFallbackValue = 10
     val pageFallbackValue = 0
@@ -25,13 +29,20 @@ fun paginatedVideoListMapper(paginatedVideoListApi: PaginatedVideoListApi?): Pag
 
 }
 
+/***
+ * Converts a VideoItemApi Network Model to a Domain Model discarding the items without Id
+ * Used !! because the smart cast doesn't work when the model is in a different module
+ * @return a VideoItem object if the id exist otherwise return null
+ */
 fun videoItemApiMapper(videoItemApi: VideoItemApi?): VideoItem? {
-    if (videoItemApi == null) return null
-    return VideoItem(
-        channel = videoItemApi.channel ?: NON_AVAILABLE,
-        id = videoItemApi.id ?: "",
-        owner = videoItemApi.owner ?: NON_AVAILABLE,
-        title = videoItemApi.title ?: NON_AVAILABLE,
-        thumbnailUrl = videoItemApi.thumbnail_240_url
-    )
+    return if (videoItemApi?.id == null) null
+    else {
+        VideoItem(
+            channel = videoItemApi.channel ?: NON_AVAILABLE,
+            id = videoItemApi.id!!,
+            owner = videoItemApi.owner ?: NON_AVAILABLE,
+            title = videoItemApi.title ?: NON_AVAILABLE,
+            thumbnailUrl = videoItemApi.thumbnail_240_url
+        )
+    }
 }
